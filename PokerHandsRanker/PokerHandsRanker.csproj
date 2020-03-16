@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HandPrinterService.cs" />
+    <Compile Include="IHandPrinterService.cs" />
     <Compile Include="Injection\PHRInjectionModule.cs" />
     <Compile Include="IPokerHands.cs" />
     <Compile Include="IRank.cs" />

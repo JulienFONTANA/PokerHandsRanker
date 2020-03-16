@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace PokerHandsRanker
 {
@@ -8,13 +7,16 @@ namespace PokerHandsRanker
     {
         private Random Rand { get; }
         private IRankService RankService { get; }
+        private IHandPrinterService HandPrinterService { get; }
 
         private IList<string> _deck;
 
-        public PokerHands(IRankService rankService)
+        public PokerHands(IRankService rankService,
+            IHandPrinterService handPrinterService)
         {
-            RankService = rankService;
             Rand = new Random();
+            RankService = rankService;
+            HandPrinterService = handPrinterService;
         }
 
         public void Rank()
@@ -34,8 +36,8 @@ namespace PokerHandsRanker
                 var rankHandP1 = RankHand(handP1);
                 var rankHandP2 = RankHand(handP2);
 
-                PrintHand(1, handP1, rankHandP1);
-                PrintHand(2, handP2, rankHandP2);
+                HandPrinterService.PrintHand(1, handP1, rankHandP1);
+                HandPrinterService.PrintHand(2, handP2, rankHandP2);
 
                 var winner = RankHands(handP1, handP2);
 
@@ -67,46 +69,6 @@ namespace PokerHandsRanker
         private Rank RankHand(List<string> hand)
         {
             return RankService.GetRankFromHand(hand);
-        }
-
-        private static void PrintHand(int player, IEnumerable<string> hand, Rank rankHand)
-        {
-            Console.WriteLine($"Hand of player {player} is : ");
-            foreach (var card in hand)
-            {
-                PrintCard(card);
-            }
-
-            Console.Write($" - {PokerHandsRanker.Rank.RankNames.FirstOrDefault(r => r.Key == rankHand.RankValue).Value} with {rankHand.Card}");
-
-            Console.WriteLine();
-        }
-
-        private static void PrintCard(string card)
-        {
-            Console.ForegroundColor = ConsoleColor.Black;
-
-            switch (card[1])
-            {
-                case 'C':
-                    Console.BackgroundColor = ConsoleColor.Blue;
-                    break;
-                case 'H':
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    break;
-                case 'S':
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    break;
-                case 'D':
-                    Console.BackgroundColor = ConsoleColor.Yellow;
-                    break;
-                default:
-                    break;
-            }
-            Console.Write(card);
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.Write(" ");
         }
 
         private void DrawCard(ICollection<string> hand, IList<string> deck)
