@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace PokerHandsRanker
 {
-    public class RankService
+    public class RankService : IRankService
     {
         public Rank GetRankFromHand(List<string> hand)
         {
-            var rank = HasMultipleSameValueCards(hand); // 2x, 3x, 4x, 2-2 and 2-3 ?
+            var rank = HasMultipleSameValueCards(hand); // TODO - Check 2x, 3x, 4x, 2-2 and 2-3
             var isStraight = IsStraight(hand);
             var isFlush = IsFlush(hand);
 

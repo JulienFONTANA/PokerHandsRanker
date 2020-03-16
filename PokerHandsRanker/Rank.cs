@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace PokerHandsRanker
 {
-    public class Rank
+    public class Rank : IRank
     {
         public int RankValue { get; set; }
         public string Card { get; set; }

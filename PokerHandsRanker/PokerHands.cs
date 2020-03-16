@@ -4,23 +4,21 @@ using System.Linq;
 
 namespace PokerHandsRanker
 {
-    public class PokerHands
+    public class PokerHands : IPokerHands
     {
         private Random Rand { get; }
-        private RankService RankService { get; }
+        private IRankService RankService { get; }
 
         private IList<string> _deck;
 
-        public PokerHands()
+        public PokerHands(IRankService rankService)
         {
-            RankService = new RankService();
+            RankService = rankService;
             Rand = new Random();
         }
 
         public void Rank()
         {
-            Console.ForegroundColor = ConsoleColor.White;
-
             var gameOver = false;
             while (!gameOver)
             {
