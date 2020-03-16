@@ -1,4 +1,5 @@
 ﻿using Ninject.Modules;
+using PokerHandsRanker.Interfaces;
 
 namespace PokerHandsRanker.Injection
 {
@@ -10,6 +11,8 @@ namespace PokerHandsRanker.Injection
             Bind<IRank>().To<IRank>();
             Bind<IRankService>().To<RankService>();
             Bind<IHandPrinterService>().To<HandPrinterService>();
+            Bind<IDeckService>().To<DeckService>();
+            Bind<IHandRankerService>().To<HandRankerService>();
         }
     }
 }

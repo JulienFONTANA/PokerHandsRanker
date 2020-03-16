@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PokerHandsRanker
+namespace PokerHandsRanker.Interfaces
 {
     public interface IRankService
     {

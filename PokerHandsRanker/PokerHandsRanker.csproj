@@ -46,12 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeckService.cs" />
     <Compile Include="HandPrinterService.cs" />
-    <Compile Include="IHandPrinterService.cs" />
+    <Compile Include="HandRankerService.cs" />
+    <Compile Include="Interfaces\IHandRankerService.cs" />
+    <Compile Include="Interfaces\IDeckService.cs" />
+    <Compile Include="Interfaces\IHandPrinterService.cs" />
     <Compile Include="Injection\PHRInjectionModule.cs" />
-    <Compile Include="IPokerHands.cs" />
-    <Compile Include="IRank.cs" />
-    <Compile Include="IRankService.cs" />
+    <Compile Include="Interfaces\IPokerHands.cs" />
+    <Compile Include="Interfaces\IRank.cs" />
+    <Compile Include="Interfaces\IRankService.cs" />
     <Compile Include="PokerHands.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

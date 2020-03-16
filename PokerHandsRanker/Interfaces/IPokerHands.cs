@@ -1,4 +1,4 @@
-﻿namespace PokerHandsRanker
+﻿namespace PokerHandsRanker.Interfaces
 {
     public interface IPokerHands
     {

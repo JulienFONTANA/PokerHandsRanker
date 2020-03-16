@@ -1,6 +1,7 @@
 ﻿using System;
 using Ninject;
 using PokerHandsRanker.Injection;
+using PokerHandsRanker.Interfaces;
 
 namespace PokerHandsRanker
 {
