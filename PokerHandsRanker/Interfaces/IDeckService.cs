@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace PokerHandsRanker
+namespace PokerHandsRanker.Interfaces
 {
     public interface IDeckService
     {
         void DrawCard(ICollection<string> hand, IList<string> deck);
-        List<string> InitDeck();
+        IList<string> InitDeck();
     }
 }

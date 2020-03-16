@@ -15,7 +15,7 @@ namespace PokerHandsRanker
             Card = card;
         }
 
-        public bool? IsBetterRank(Rank other)
+        public bool? IsBetterRank(IRank other)
         {
             if (other.RankValue < RankValue)
             {
@@ -36,7 +36,7 @@ namespace PokerHandsRanker
             return otherCardValue < thisCardValue;
         }
 
-        public static readonly Dictionary<int, string> RankNames = new Dictionary<int, string>
+        public static readonly IDictionary<int, string> RankNames = new Dictionary<int, string>
         {
             {1, "High Card"},
             {2, "Pair"},
@@ -50,7 +50,7 @@ namespace PokerHandsRanker
             {10, "Royal Flush"},
         };
 
-        public static readonly Dictionary<char, int> RankCards = new Dictionary<char, int>
+        public static readonly IDictionary<char, int> RankCards = new Dictionary<char, int>
         {
             {'2', 1},
             {'3', 2},

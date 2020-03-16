@@ -6,7 +6,7 @@ namespace PokerHandsRanker
 {
     public class RankService : IRankService
     {
-        public Rank GetRankFromHand(List<string> hand)
+        public IRank GetRankFromHand(IList<string> hand)
         {
             var rank = HasMultipleSameValueCards(hand); // TODO - Check 2x, 3x, 4x, 2-2 and 2-3
             var isStraight = IsStraight(hand);
@@ -40,7 +40,7 @@ namespace PokerHandsRanker
             return new Rank(1, FindHighestCard(hand));
         }
 
-        private static Rank HasMultipleSameValueCards(IReadOnlyCollection<string> hand)
+        private static IRank HasMultipleSameValueCards(IList<string> hand)
         {
             Rank rank = null;
             var distinctCardValues = hand.Select(card => Rank.RankCards.FirstOrDefault(c => c.Key == card[0]).Key)

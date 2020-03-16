@@ -4,6 +4,6 @@
     {
         int RankValue { get; set; }
         string Card { get; set; }
-        bool? IsBetterRank(Rank other);
+        bool? IsBetterRank(IRank other);
     }
 }

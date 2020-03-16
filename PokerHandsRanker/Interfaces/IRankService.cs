@@ -4,6 +4,6 @@ namespace PokerHandsRanker.Interfaces
 {
     public interface IRankService
     {
-        Rank GetRankFromHand(List<string> hand);
+        IRank GetRankFromHand(IList<string> hand);
     }
 }

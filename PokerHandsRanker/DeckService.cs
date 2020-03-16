@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using PokerHandsRanker.Interfaces;
 
 namespace PokerHandsRanker
 {
@@ -19,7 +20,7 @@ namespace PokerHandsRanker
             deck.RemoveAt(cardIndex);
         }
 
-        public List<string> InitDeck()
+        public IList<string> InitDeck()
         {
             return new List<string>
             {

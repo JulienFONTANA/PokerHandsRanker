@@ -12,7 +12,7 @@ namespace PokerHandsRanker
             _rankService = rankService;
         }
 
-        public int RankHands(List<string> handP1, List<string> handP2)
+        public int RankHands(IList<string> handP1, IList<string> handP2)
         {
             var rankHandP1 = RankHand(handP1);
             var rankHandP2 = RankHand(handP2);
@@ -27,7 +27,7 @@ namespace PokerHandsRanker
             return 0;
         }
 
-        public Rank RankHand(List<string> hand)
+        public IRank RankHand(IList<string> hand)
         {
             return _rankService.GetRankFromHand(hand);
         }

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace PokerHandsRanker
+namespace PokerHandsRanker.Interfaces
 {
     public interface IHandRankerService
     {
-        int RankHands(List<string> handP1, List<string> handP2);
-        Rank RankHand(List<string> hand);
+        int RankHands(IList<string> handP1, IList<string> handP2);
+        IRank RankHand(IList<string> hand);
     }
 }
